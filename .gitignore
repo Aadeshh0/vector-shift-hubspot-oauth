@@ -1,0 +1,10 @@
+.vscode/
+
+frontend/node_modules/
+
+backend/vectorshift/
+
+.DS_Store
+*.pyc
+
+*rdb
