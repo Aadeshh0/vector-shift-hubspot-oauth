@@ -25,7 +25,7 @@ This project is an assignment provided by VectorShift, in which the task was to 
 cd backend
 python -m venv .venv
 source .venv/bin/activate       # on macOS
-.venv\Scripts\activate           # on windows
+# .venv\Scripts\activate           # on windows
 pip install -r requirements.txt
 uvicorn main:app --reload
 ```
