@@ -9,8 +9,8 @@ flows during local development. It includes a working HubSpot OAuth flow and dat
 
 ### `Tech Stack`
 
-#### - Backend : FastAPI (OAuth endpoints, data loading, token exchange), Uvicorn, Redis, httpx / requests
-#### - Frontend : React with material UI and axios, 
+- Backend : FastAPI (OAuth endpoints, data loading, token exchange), Uvicorn, Redis, httpx / requests
+- Frontend : React with material UI and axios, 
 
 ## Prerequisites
 
