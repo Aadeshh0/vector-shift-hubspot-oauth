@@ -7,6 +7,7 @@ This project is an assignment provided by VectorShift, in which the task was to 
 
 The backend is built using a FastAPI backend and a React frontend. OAuth states and credentials were securely persisted in Redis to support the authentication flow during local development. The final implementation includes a fully functional HubSpot OAuth flow and data loading capability.
 
+### DONE by [Aadesh Gupta](https://www.linkedin.com/in/-aadesh-gupta/)
 ------------
 
 ### `Tech Stack`
