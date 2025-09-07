@@ -1,6 +1,11 @@
 # VectorShift Hubspot OAuth Integration Assignment
 
-This project is an assignment provided by VectorShift, in which the task was to complete an OAuth integration with HubSpot. The developer implemented the authorize_hubspot, oauth2callback_hubspot, and get_hubspot_credentials functions in hubspot.py using a FastAPI backend and a React frontend. OAuth states and credentials were securely persisted in Redis to support the authentication flow during local development. The final implementation includes a fully functional HubSpot OAuth flow and data loading capability.
+This project is an assignment provided by VectorShift, in which the task was to complete an OAuth integration with HubSpot. The integration was completed by implementing the following key functions in `hubspot.py`:
+- authorize_hubspot
+- oauth2callback_hubspot
+- get_hubspot_credentials
+
+The backend is built using a FastAPI backend and a React frontend. OAuth states and credentials were securely persisted in Redis to support the authentication flow during local development. The final implementation includes a fully functional HubSpot OAuth flow and data loading capability.
 
 ------------
 
