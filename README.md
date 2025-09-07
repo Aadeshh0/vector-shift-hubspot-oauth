@@ -1,9 +1,6 @@
-# VectorShift Hubspot OAuth Integrations Assignment
+# VectorShift Hubspot OAuth Integration Assignment
 
-This project is an assignment provided by Vector Shift, that asked us to complete OAuth integration with HubSpot,
-completing the functions authorize_hubspot, oauth2callback_hubspot, and get_hubspot_credentials functions in 
-hubspot.py using a FastAPI backend and a React frontend, persisting OAuth states and credentials in Redis for secure
-flows during local development. It includes a working HubSpot OAuth flow and data loading.
+This project is an assignment provided by VectorShift, in which the task was to complete an OAuth integration with HubSpot. The developer implemented the authorize_hubspot, oauth2callback_hubspot, and get_hubspot_credentials functions in hubspot.py using a FastAPI backend and a React frontend. OAuth states and credentials were securely persisted in Redis to support the authentication flow during local development. The final implementation includes a fully functional HubSpot OAuth flow and data loading capability.
 
 ------------
 
@@ -26,6 +23,9 @@ flows during local development. It includes a working HubSpot OAuth flow and dat
 
 ```bash
 cd backend
+python -m venv .venv
+source .venv/bin/activate       # on macOS
+.venv\Scripts\activate           # on windows
 pip install -r requirements.txt
 uvicorn main:app --reload
 ```
@@ -79,10 +79,10 @@ redis-server
 ## API Endpoints (Backend)
 
 HubSpot
-- POST /integrations/hubspot/authorize
-- GET  /integrations/hubspot/oauth2callback
-- POST /integrations/hubspot/credentials
-- POST /integrations/hubspot/get_hubspot_items   ← used by the current frontend build
+- POST /integrations/hubspot/authorize : Begins the HubSpot OAuth flow: generates and stores a state token in Redis, then returns the provider authorization URL used by the frontend popup to request user consent.
+- GET  /integrations/hubspot/oauth2callback : Handles the redirect after consent: validates state from Redis, exchanges the authorization code for tokens, stores credentials in Redis, and returns a small HTML page that closes the popup.
+- POST /integrations/hubspot/credentials : Retrieves the saved HubSpot credentials for the given user_id and org_id from Redis so the client can use them to load data.
+- POST /integrations/hubspot/get_hubspot_items : Loads HubSpot CRM objects (contacts, companies, deals, tickets) using the provided credentials JSON; normalizes results into IntegrationItems for display in the UI.
 
 Use http://localhost:8000/docs (Swagger UI) to verify the endpoints are registered and test them directly.
 
