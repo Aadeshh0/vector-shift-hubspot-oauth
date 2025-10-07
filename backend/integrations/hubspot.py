@@ -185,57 +185,24 @@ async def create_integration_item_metadata_object(response_json, schema):
 
     if schema == 'companies':
         name = properties.get('name', 'Unnamed Company')
-        return IntegrationItem(
-            id=f"{item_id}_{schema}",
-            type=schema,
-            name=name,
-            creation_time=created_time,
-            last_modified_time=updated_time,
-        )
-    
     elif schema == 'contacts':
         firstname = properties.get('firstname', '')
         lastname = properties.get('lastname', '')
         name = f'{firstname} {lastname}'.strip()
         if not name:
             name = properties.get('email', 'Unnamed Contact')
-        return IntegrationItem(
-            id=f"{item_id}_{schema}",
-            type=schema,
-            name=name,
-            creation_time=created_time,
-            last_modified_time=updated_time,
-        )
-    
     elif schema == 'deals':
         name = properties.get("dealname", 'Unnamed Deal')
-        return IntegrationItem(
-            id=f"{item_id}_{schema}",
-            type=schema,
-            name=name,
-            creation_time=created_time,
-            last_modified_time=updated_time,
-        )
-    
-    elif schema == 'tickets':
-        name = properties.get("dealname", "Unnamed Deal")
-        return IntegrationItem(
-            id=f"{item_id}_{schema}",
-            type=schema,
-            name=name,
-            creation_time=created_time,
-            last_modified_time=updated_time,
-        )
-    
-    else:  # tickets
+    else:
         name = f'Unknown {schema}'
-        return IntegrationItem(
-            id=f"{item_id}_{schema}",
-            type=schema,
-            name=name,
-            creation_time=created_time,
-            last_modified_time=updated_time,
-        )
+
+    return IntegrationItem(
+        id=f"{item_id}_{schema}",
+        type=schema,
+        name=name,
+        creation_time=created_time,
+        last_modified_time=updated_time,
+    )
 
 def fetch_hubspot_data(access_token, object_type):
     headers = {
